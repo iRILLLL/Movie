@@ -11,6 +11,7 @@
 		8F11E6892ACD129300F0AB79 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11E6882ACD129300F0AB79 /* ContentView.swift */; };
 		8F11E68B2ACD129400F0AB79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F11E68A2ACD129400F0AB79 /* Assets.xcassets */; };
 		8F11E68F2ACD129400F0AB79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F11E68E2ACD129400F0AB79 /* Preview Assets.xcassets */; };
+		8F11E6982ACD13A700F0AB79 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11E6972ACD13A700F0AB79 /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,9 @@
 		8F11E68A2ACD129400F0AB79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F11E68C2ACD129400F0AB79 /* Movie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Movie.entitlements; sourceTree = "<group>"; };
 		8F11E68E2ACD129400F0AB79 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8F11E6952ACD131800F0AB79 /* development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = development.xcconfig; sourceTree = "<group>"; };
+		8F11E6962ACD136700F0AB79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8F11E6972ACD13A700F0AB79 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +56,14 @@
 		8F11E6852ACD129300F0AB79 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
+				8F11E6962ACD136700F0AB79 /* Info.plist */,
 				8F11E6862ACD129300F0AB79 /* MovieApp.swift */,
 				8F11E6882ACD129300F0AB79 /* ContentView.swift */,
+				8F11E6972ACD13A700F0AB79 /* Secrets.swift */,
 				8F11E68A2ACD129400F0AB79 /* Assets.xcassets */,
 				8F11E68C2ACD129400F0AB79 /* Movie.entitlements */,
 				8F11E68D2ACD129400F0AB79 /* Preview Content */,
+				8F11E6952ACD131800F0AB79 /* development.xcconfig */,
 			);
 			path = Movie;
 			sourceTree = "<group>";
@@ -140,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F11E6892ACD129300F0AB79 /* ContentView.swift in Sources */,
+				8F11E6982ACD13A700F0AB79 /* Secrets.swift in Sources */,
 				8F11E6872ACD129300F0AB79 /* MovieApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +157,7 @@
 /* Begin XCBuildConfiguration section */
 		8F11E6902ACD129400F0AB79 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F11E6952ACD131800F0AB79 /* development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -267,6 +276,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Movie/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Movie/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -303,6 +313,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Movie/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Movie/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
