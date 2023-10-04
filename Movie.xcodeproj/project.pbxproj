@@ -13,6 +13,8 @@
 		8F11E68F2ACD129400F0AB79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F11E68E2ACD129400F0AB79 /* Preview Assets.xcassets */; };
 		8F11E6982ACD13A700F0AB79 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11E6972ACD13A700F0AB79 /* Secrets.swift */; };
 		8F4E6E8D2ACD1B1C00D035B4 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4E6E8C2ACD1B1C00D035B4 /* Home */; };
+		8F4E6E8F2ACD1F9C00D035B4 /* TMDBCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4E6E8E2ACD1F9C00D035B4 /* TMDBCore */; };
+		8F4E6E912ACD1F9F00D035B4 /* TMDBCoreLive in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4E6E902ACD1F9F00D035B4 /* TMDBCoreLive */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +35,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F4E6E8F2ACD1F9C00D035B4 /* TMDBCore in Frameworks */,
 				8F4E6E8D2ACD1B1C00D035B4 /* Home in Frameworks */,
+				8F4E6E912ACD1F9F00D035B4 /* TMDBCoreLive in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +110,8 @@
 			name = Movie;
 			packageProductDependencies = (
 				8F4E6E8C2ACD1B1C00D035B4 /* Home */,
+				8F4E6E8E2ACD1F9C00D035B4 /* TMDBCore */,
+				8F4E6E902ACD1F9F00D035B4 /* TMDBCoreLive */,
 			);
 			productName = Movie;
 			productReference = 8F11E6832ACD129300F0AB79 /* Movie.app */;
@@ -381,6 +387,14 @@
 		8F4E6E8C2ACD1B1C00D035B4 /* Home */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Home;
+		};
+		8F4E6E8E2ACD1F9C00D035B4 /* TMDBCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TMDBCore;
+		};
+		8F4E6E902ACD1F9F00D035B4 /* TMDBCoreLive */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TMDBCoreLive;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

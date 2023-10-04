@@ -12,12 +12,13 @@ let package = Package(
         .watchOS(.v9),
     ],
     products: [
-        .library(
-            name: "Home",
-            targets: ["Home"]),
+        .library(name: "Home", targets: ["Home"]),
+        .library(name: "TMDBCore", targets: ["TMDBCore"]),
+        .library(name: "TMDBCoreLive", targets: ["TMDBCoreLive"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: "1.2.0"),
+        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: "1.2.0"),        
+        .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.0.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -28,10 +29,24 @@ let package = Package(
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
+        .target(
+            name: "TMDBCore",
+            dependencies: [
+                .product(name: "Dependencies", package: "swift-dependencies"),
+            ]
+        ),
+        .target(
+            name: "TMDBCoreLive",
+            dependencies: [
+                "TMDBCore",
+                .product(name: "Dependencies", package: "swift-dependencies"),
+            ]
+        ),
         .testTarget(
             name: "HomeTests",
             dependencies: [
                 "Home"
-            ]),
+            ]
+        ),
     ]
 )
