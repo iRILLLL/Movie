@@ -11,7 +11,6 @@
 		8F11E6892ACD129300F0AB79 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11E6882ACD129300F0AB79 /* ContentView.swift */; };
 		8F11E68B2ACD129400F0AB79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F11E68A2ACD129400F0AB79 /* Assets.xcassets */; };
 		8F11E68F2ACD129400F0AB79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F11E68E2ACD129400F0AB79 /* Preview Assets.xcassets */; };
-		8F11E6982ACD13A700F0AB79 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11E6972ACD13A700F0AB79 /* Secrets.swift */; };
 		8F4E6E8D2ACD1B1C00D035B4 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4E6E8C2ACD1B1C00D035B4 /* Home */; };
 		8F4E6E8F2ACD1F9C00D035B4 /* TMDBCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4E6E8E2ACD1F9C00D035B4 /* TMDBCore */; };
 		8F4E6E912ACD1F9F00D035B4 /* TMDBCoreLive in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4E6E902ACD1F9F00D035B4 /* TMDBCoreLive */; };
@@ -26,7 +25,6 @@
 		8F11E68E2ACD129400F0AB79 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8F11E6952ACD131800F0AB79 /* development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = development.xcconfig; sourceTree = "<group>"; };
 		8F11E6962ACD136700F0AB79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8F11E6972ACD13A700F0AB79 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		8F11E6992ACD182100F0AB79 /* features */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = features; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,7 +66,6 @@
 				8F11E6962ACD136700F0AB79 /* Info.plist */,
 				8F11E6862ACD129300F0AB79 /* MovieApp.swift */,
 				8F11E6882ACD129300F0AB79 /* ContentView.swift */,
-				8F11E6972ACD13A700F0AB79 /* Secrets.swift */,
 				8F11E68A2ACD129400F0AB79 /* Assets.xcassets */,
 				8F11E68C2ACD129400F0AB79 /* Movie.entitlements */,
 				8F11E68D2ACD129400F0AB79 /* Preview Content */,
@@ -168,7 +165,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F11E6892ACD129300F0AB79 /* ContentView.swift in Sources */,
-				8F11E6982ACD13A700F0AB79 /* Secrets.swift in Sources */,
 				8F11E6872ACD129300F0AB79 /* MovieApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
