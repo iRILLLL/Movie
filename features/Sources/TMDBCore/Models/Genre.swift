@@ -1,4 +1,4 @@
-public struct Genre: Equatable, Identifiable {
+public struct Genre: Equatable, Identifiable, Hashable {
     
     public let id: Int
     public let name: String
