@@ -1,9 +1,12 @@
 import SwiftUI
 import Home
+import ComposableArchitecture
 
 struct ContentView: View {
     var body: some View {
-        HomeView()
+        HomeView(store: .init(initialState: .init()) {
+            Home()
+        })
     }
 }
 

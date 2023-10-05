@@ -1,20 +1,34 @@
-//
-//  SwiftUIView.swift
-//  
-//
-//  Created by Iril on 04/10/23.
-//
-
 import SwiftUI
+import TMDBCore
 
-struct SwiftUIView: View {
+struct MovieView: View {
+
+    let movie: Movie
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        SwiftUIView()
+        VStack(alignment: .leading) {
+            AsyncImage(
+                url: movie.thumbnailURL,
+                content: { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxHeight: 172)
+                },
+                placeholder: {
+                    ProgressView()
+                }
+            )
+            VStack(alignment: .leading) {
+                Text(movie.releaseDate)
+                    .font(.headline)
+                    .foregroundColor(.secondary)
+                Text(movie.title)
+                    .font(.title)
+                    .fontWeight(.black)
+                    .foregroundColor(.primary)
+                    .lineLimit(3)
+            }
+        }
     }
 }
