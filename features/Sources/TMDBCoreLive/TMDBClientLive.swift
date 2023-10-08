@@ -19,18 +19,26 @@ extension TMDBClientKey: DependencyKey {
             return response.genres.map(Genre.init)
         },
         movieList: { request in
-            let genreIDs = request.genreIDs.map(String.init).joined(separator: ",")
-            let path = "/discover/movie"
+            
+            let path = request.type.endpoint
+            var query: [(String, String?)] = [("language", request.language)]
+            
+            switch request.type {
+            case let .discover(params):
+                let genreIDs = params.genreIDs.map(String.init).joined(separator: ",")
+                query.append(("with_genres", genreIDs))
+                query.append(("include_adult", "false"))
+                query.append(("include_video", "false"))
+                query.append(("page", "1"))
+                query.append(("sort_by", "popularity.desc"))
+        
+            case .trending:
+                break
+            }
+            
             let request = Request<MovieListResponse>(
                 path: path,
-                query: [
-                    ("language", "en"),
-                    ("include_adult", "false"),
-                    ("include_video", "false"),
-                    ("page", "1"),
-                    ("sort_by", "popularity.desc"),
-                    ("with_genres", genreIDs)
-                ]
+                query: query
             )
             let client = APIClient(baseURL: URL(string: "https://api.themoviedb.org/3")) {
                 $0.delegate = ClientDelegate()

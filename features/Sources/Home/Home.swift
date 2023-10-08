@@ -51,7 +51,7 @@ public struct Home: Reducer {
                 return .run { send in
                     await withThrowingTaskGroup(of: Void.self) { group in
                         for genre in genreList {
-                            let request = MovieListRequest(genreIDs: [genre.id])
+                            let request = MovieListRequest(type: .discover(.init(genreIDs: [genre.id])))
                             group.addTask {
                                 await send(.movieListResponse(genre,
                                     TaskResult {
