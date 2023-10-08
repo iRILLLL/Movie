@@ -30,7 +30,7 @@ struct TrendingCarouselView<
         GeometryReader { proxy in
             
             let width = proxy.size.width * 0.75
-            let height = width * 16 / 9
+            let height = proxy.size.height
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: spacing) {

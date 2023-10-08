@@ -9,12 +9,16 @@ public struct TrendingMovies: Reducer {
     
     public struct State: Equatable {
         
-        public init() {}
+        let period: MovieListRequest.Period
+        
+        public init(period: MovieListRequest.Period) {
+            self.period = period
+        }
         
         var movieList: IdentifiedArrayOf<Movie> = []
     }
     
-    public enum Action {
+    public enum Action: Equatable {
         case onTask
         case movieListResponse(TaskResult<[Movie]>)
     }
@@ -22,7 +26,7 @@ public struct TrendingMovies: Reducer {
     public func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .onTask:
-            let request = MovieListRequest(type: .trending(.day))
+            let request = MovieListRequest(type: .trending(state.period))
             return .run { send in
                 await send(.movieListResponse(
                     TaskResult {

@@ -5,9 +5,11 @@ import Trending
 
 struct ContentView: View {
     var body: some View {
-        TrendingMoviesView(store: .init(initialState: .init()) {
-            TrendingMovies()
-        })
+        NavigationStack {
+            TrendingView(store: .init(initialState: .init()) {
+                Trending()
+            })
+        }
 //        HomeView(store: .init(initialState: .init()) {
 //            Home()
 //        })

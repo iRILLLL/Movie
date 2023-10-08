@@ -43,7 +43,7 @@ extension MovieListRequest {
         }
     }
     
-    public enum Period: String {
+    public enum Period: String, Equatable {
         case day
         case week
     }
