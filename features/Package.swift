@@ -13,6 +13,7 @@ let package = Package(
     ],
     products: [
         .library(name: "Home", targets: ["Home"]),
+        .library(name: "Trending", targets: ["Trending"]),
         .library(name: "TMDBCore", targets: ["TMDBCore"]),
         .library(name: "TMDBCoreLive", targets: ["TMDBCoreLive"]),
     ],
@@ -23,10 +24,15 @@ let package = Package(
         .package(url: "https://github.com/pointfreeco/xctest-dynamic-overlay", from: "1.0.2"),
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Home",
+            dependencies: [
+                "TMDBCore",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
+        ),
+        .target(
+            name: "Trending",
             dependencies: [
                 "TMDBCore",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
