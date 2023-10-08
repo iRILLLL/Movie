@@ -1,12 +1,16 @@
 import SwiftUI
 import Home
 import ComposableArchitecture
+import Trending
 
 struct ContentView: View {
     var body: some View {
-        HomeView(store: .init(initialState: .init()) {
-            Home()
+        TrendingMoviesView(store: .init(initialState: .init()) {
+            TrendingMovies()
         })
+//        HomeView(store: .init(initialState: .init()) {
+//            Home()
+//        })
     }
 }
 
