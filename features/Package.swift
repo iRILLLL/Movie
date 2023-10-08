@@ -21,7 +21,8 @@ let package = Package(
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.2.0"),
         .package(url: "https://github.com/pointfreeco/swift-dependencies", exact: "1.0.0"),
         .package(url: "https://github.com/kean/Get", exact: "2.1.6"),
-        .package(url: "https://github.com/pointfreeco/xctest-dynamic-overlay", from: "1.0.2"),
+        .package(url: "https://github.com/pointfreeco/xctest-dynamic-overlay", exact: "1.0.2"),
+        .package(url: "https://github.com/kean/Nuke", exact: "12.1.6"),
     ],
     targets: [
         .target(
@@ -35,6 +36,7 @@ let package = Package(
             name: "Trending",
             dependencies: [
                 "TMDBCore",
+                .product(name: "NukeUI", package: "Nuke"),
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
