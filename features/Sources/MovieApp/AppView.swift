@@ -1,5 +1,12 @@
 import SwiftUI
 import ComposableArchitecture
+import Home
+import Trending
+
+public enum Tab: Equatable {
+    case home
+    case trending
+}
 
 public struct AppView: View {
     
@@ -10,6 +17,21 @@ public struct AppView: View {
     }
     
     public var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        WithViewStore(self.store, observe: \.selectedTab) { viewStore in
+            TabView(selection: viewStore.binding(send: AppFeature.Action.selectedTabChanged)) {
+                
+                HomeView(
+                    store: self.store.scope(state: \.homeTab, action: AppFeature.Action.homeTab)
+                )
+                .tabItem { Label("Home", systemImage: "house") }
+                .tag(Tab.home)
+                
+                TrendingView(
+                    store: self.store.scope(state: \.trendingTab, action: AppFeature.Action.trendingTab)
+                )
+                .tabItem { Label("Trending", systemImage: "flame") }
+                .tag(Tab.trending)
+            }
+        }
     }
 }

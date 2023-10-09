@@ -16,7 +16,7 @@ public struct Home: Reducer {
         var movieList: [Genre: IdentifiedArrayOf<Movie>] = [:]
     }
     
-    public enum Action {
+    public enum Action: Equatable {
         case onTask
         case genreListResponse(TaskResult<[Genre]>)
         case movieListResponse(Genre, TaskResult<[Movie]>)
