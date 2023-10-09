@@ -1,7 +1,7 @@
 import Dependencies
 import XCTestDynamicOverlay
 
-public struct TMDBClient {
+public struct MovieClient {
     
     public var genreList: @Sendable () async throws -> [Genre]
     public var movieList: @Sendable (MovieListRequest) async throws -> [Movie]
@@ -15,22 +15,22 @@ public struct TMDBClient {
     }
 }
 
-public enum TMDBClientKey: TestDependencyKey {
+public enum MovieClientKey: TestDependencyKey {
     
-    public static var previewValue = TMDBClient(
+    public static var previewValue = MovieClient(
         genreList: unimplemented("\(Self.self).genreList"),
         movieList: unimplemented("\(Self.self).movieList")
     )
     
-    public static var testValue = TMDBClient(
+    public static var testValue = MovieClient(
         genreList: unimplemented("\(Self.self).genreList"),
         movieList: unimplemented("\(Self.self).movieList")
     )
 }
 
 extension DependencyValues {
-    public var tmdbClient: TMDBClient {
-        get { self[TMDBClientKey.self] }
-        set { self[TMDBClientKey.self] = newValue }
+    public var movieClient: MovieClient {
+        get { self[MovieClientKey.self] }
+        set { self[MovieClientKey.self] = newValue }
     }
 }

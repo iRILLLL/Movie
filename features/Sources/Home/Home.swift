@@ -3,8 +3,8 @@ import TMDBCore
 
 public struct Home: Reducer {
     
-    @Dependency(\.tmdbClient.genreList) var genreList
-    @Dependency(\.tmdbClient.movieList) var movieList
+    @Dependency(\.movieClient.genreList) var genreList
+    @Dependency(\.movieClient.movieList) var movieList
     
     public init() {}
     

@@ -3,7 +3,7 @@ import TMDBCore
 
 public struct TrendingMovies: Reducer {
     
-    @Dependency(\.tmdbClient.movieList) var movieList
+    @Dependency(\.movieClient.movieList) var movieList
     
     public init() {}
     

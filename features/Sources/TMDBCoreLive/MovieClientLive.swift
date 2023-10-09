@@ -3,9 +3,9 @@ import Dependencies
 import TMDBCore
 import Get
 
-extension TMDBClientKey: DependencyKey {
+extension MovieClientKey: DependencyKey {
     
-    public static let liveValue: TMDBClient = .init(
+    public static let liveValue: MovieClient = .init(
         genreList: {
             let path = "/genre/tv/list"
             let request = Request<GenreListResponse>(
