@@ -18,19 +18,26 @@ public struct AppView: View {
     
     public var body: some View {
         WithViewStore(self.store, observe: \.selectedTab) { viewStore in
-            TabView(selection: viewStore.binding(send: AppFeature.Action.selectedTabChanged)) {
-                
-                HomeView(
-                    store: self.store.scope(state: \.homeTab, action: AppFeature.Action.homeTab)
-                )
-                .tabItem { Label("Home", systemImage: "house") }
-                .tag(Tab.home)
-                
-                TrendingView(
-                    store: self.store.scope(state: \.trendingTab, action: AppFeature.Action.trendingTab)
-                )
-                .tabItem { Label("Trending", systemImage: "flame") }
-                .tag(Tab.trending)
+            NavigationStack {
+                TabView(selection: viewStore.binding(send: AppFeature.Action.selectedTabChanged)) {
+                    
+                    HomeView(
+                        store: self.store.scope(state: \.homeTab, action: AppFeature.Action.homeTab)
+                    )
+                    .tabItem { Label("Home", systemImage: "house") }
+                    .tag(Tab.home)
+                    
+                    TrendingView(
+                        store: self.store.scope(state: \.trendingTab, action: AppFeature.Action.trendingTab)
+                    )
+                    .tabItem { Label("Trending", systemImage: "flame") }
+                    .tag(Tab.trending)
+                }
+                .toolbar {
+                    Button("", systemImage: "person.crop.circle") {
+                        
+                    }
+                }
             }
         }
     }
