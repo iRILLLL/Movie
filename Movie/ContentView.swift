@@ -10,9 +10,6 @@ struct ContentView: View {
                 Trending()
             })
         }
-//        HomeView(store: .init(initialState: .init()) {
-//            Home()
-//        })
     }
 }
 

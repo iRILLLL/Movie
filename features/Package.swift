@@ -12,6 +12,7 @@ let package = Package(
         .watchOS(.v9),
     ],
     products: [
+        .library(name: "MovieApp", targets: ["MovieApp"]),
         .library(name: "Home", targets: ["Home"]),
         .library(name: "Trending", targets: ["Trending"]),
         .library(name: "TMDBCore", targets: ["TMDBCore"]),
@@ -25,6 +26,14 @@ let package = Package(
         .package(url: "https://github.com/kean/Nuke", exact: "12.1.6"),
     ],
     targets: [
+        .target(
+            name: "MovieApp",
+            dependencies: [
+                "Trending",
+                "Home",
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
+        ),
         .target(
             name: "Home",
             dependencies: [

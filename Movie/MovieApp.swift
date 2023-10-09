@@ -1,10 +1,16 @@
 import SwiftUI
+import MovieApp
+import ComposableArchitecture
 
 @main
 struct MovieApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppView(
+                store: .init(initialState: AppFeature.State()) {
+                    AppFeature()
+                }
+            )
         }
     }
 }
