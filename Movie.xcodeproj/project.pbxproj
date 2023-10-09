@@ -16,6 +16,7 @@
 		8F4E6E912ACD1F9F00D035B4 /* TMDBCoreLive in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4E6E902ACD1F9F00D035B4 /* TMDBCoreLive */; };
 		8FAB81052AD2A75100FDD2D1 /* Trending in Frameworks */ = {isa = PBXBuildFile; productRef = 8FAB81042AD2A75100FDD2D1 /* Trending */; };
 		8FEC81902AD4274E00185D8E /* MovieApp in Frameworks */ = {isa = PBXBuildFile; productRef = 8FEC818F2AD4274E00185D8E /* MovieApp */; };
+		8FEC81922AD431B000185D8E /* User in Frameworks */ = {isa = PBXBuildFile; productRef = 8FEC81912AD431B000185D8E /* User */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 				8FEC81902AD4274E00185D8E /* MovieApp in Frameworks */,
 				8F4E6E912ACD1F9F00D035B4 /* TMDBCoreLive in Frameworks */,
 				8FAB81052AD2A75100FDD2D1 /* Trending in Frameworks */,
+				8FEC81922AD431B000185D8E /* User in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +119,7 @@
 				8F4E6E902ACD1F9F00D035B4 /* TMDBCoreLive */,
 				8FAB81042AD2A75100FDD2D1 /* Trending */,
 				8FEC818F2AD4274E00185D8E /* MovieApp */,
+				8FEC81912AD431B000185D8E /* User */,
 			);
 			productName = Movie;
 			productReference = 8F11E6832ACD129300F0AB79 /* Movie.app */;
@@ -417,6 +420,10 @@
 		8FEC818F2AD4274E00185D8E /* MovieApp */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MovieApp;
+		};
+		8FEC81912AD431B000185D8E /* User */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = User;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -15,6 +15,7 @@ let package = Package(
         .library(name: "MovieApp", targets: ["MovieApp"]),
         .library(name: "Home", targets: ["Home"]),
         .library(name: "Trending", targets: ["Trending"]),
+        .library(name: "User", targets: ["User"]),
         .library(name: "TMDBCore", targets: ["TMDBCore"]),
         .library(name: "TMDBCoreLive", targets: ["TMDBCoreLive"]),
     ],
@@ -31,6 +32,7 @@ let package = Package(
             dependencies: [
                 "Trending",
                 "Home",
+                "User",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
@@ -46,6 +48,12 @@ let package = Package(
             dependencies: [
                 "TMDBCore",
                 .product(name: "NukeUI", package: "Nuke"),
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
+        ),
+        .target(
+            name: "User",
+            dependencies: [
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
             ]
         ),
