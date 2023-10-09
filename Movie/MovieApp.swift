@@ -6,11 +6,13 @@ import ComposableArchitecture
 struct MovieApp: App {
     var body: some Scene {
         WindowGroup {
-            AppView(
-                store: .init(initialState: AppFeature.State()) {
-                    AppFeature()
-                }
-            )
+            NavigationStack {
+                AppView(
+                    store: .init(initialState: AppFeature.State()) {
+                        AppFeature()
+                    }
+                )
+            }
         }
     }
 }

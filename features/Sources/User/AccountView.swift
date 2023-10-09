@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-public struct SwiftUIView: View {
+public struct AccountView: View {
     
     let store: StoreOf<Account>
     
@@ -10,6 +10,9 @@ public struct SwiftUIView: View {
     }
     
     public var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        }
+        .background(Color.red)
     }
 }

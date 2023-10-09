@@ -2,6 +2,7 @@ import SwiftUI
 import ComposableArchitecture
 import Home
 import Trending
+import User
 
 public enum Tab: Equatable {
     case home
@@ -18,25 +19,48 @@ public struct AppView: View {
     
     public var body: some View {
         WithViewStore(self.store, observe: \.selectedTab) { viewStore in
-            NavigationStack {
-                TabView(selection: viewStore.binding(send: AppFeature.Action.selectedTabChanged)) {
-                    
-                    HomeView(
-                        store: self.store.scope(state: \.homeTab, action: AppFeature.Action.homeTab)
-                    )
-                    .tabItem { Label("Home", systemImage: "house") }
-                    .tag(Tab.home)
-                    
-                    TrendingView(
-                        store: self.store.scope(state: \.trendingTab, action: AppFeature.Action.trendingTab)
-                    )
-                    .tabItem { Label("Trending", systemImage: "flame") }
-                    .tag(Tab.trending)
-                }
-                .toolbar {
-                    Button("", systemImage: "person.crop.circle") {
-                        
+            TabView(selection: viewStore.binding(send: AppFeature.Action.selectedTabChanged)) {
+                
+                HomeView(
+                    store: self.store.scope(state: \.homeTab, action: AppFeature.Action.homeTab)
+                )
+                .tabItem { Label("Home", systemImage: "house") }
+                .tag(Tab.home)
+                
+                TrendingView(
+                    store: self.store.scope(state: \.trendingTab, action: AppFeature.Action.trendingTab)
+                )
+                .tabItem { Label("Trending", systemImage: "flame") }
+                .tag(Tab.trending)
+            }
+            .toolbar {
+                ToolbarItem {
+                    Button {
+                        viewStore.send(.accountToolbarButtonTapped)
+                    } label: {
+                        Image(systemName: "person.crop.circle")
                     }
+                }
+            }
+            .sheet(
+                store: store.scope(
+                    state: \.$account,
+                    action: { .account($0) } 
+                )
+            ) { store in
+                NavigationStack {
+                    AccountView(store: store)
+                        .navigationTitle("Account")
+                        .toolbar {
+                            ToolbarItem(placement: .topBarLeading) {
+                                Button {
+                                    viewStore.send(.closeAccountSheetToolbarButtonTapped)
+                                } label: {
+                                    Image(systemName: "xmark")
+                                        .foregroundStyle(Color.black)
+                                }
+                            }
+                        }
                 }
             }
         }
