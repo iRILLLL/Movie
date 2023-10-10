@@ -15,6 +15,7 @@
 		8F4E6E8F2ACD1F9C00D035B4 /* TMDBCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4E6E8E2ACD1F9C00D035B4 /* TMDBCore */; };
 		8F4E6E912ACD1F9F00D035B4 /* TMDBCoreLive in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4E6E902ACD1F9F00D035B4 /* TMDBCoreLive */; };
 		8FAB81052AD2A75100FDD2D1 /* Trending in Frameworks */ = {isa = PBXBuildFile; productRef = 8FAB81042AD2A75100FDD2D1 /* Trending */; };
+		8FB384F42AD587EA00A9F81C /* MovieDetail in Frameworks */ = {isa = PBXBuildFile; productRef = 8FB384F32AD587EA00A9F81C /* MovieDetail */; };
 		8FEC81902AD4274E00185D8E /* MovieApp in Frameworks */ = {isa = PBXBuildFile; productRef = 8FEC818F2AD4274E00185D8E /* MovieApp */; };
 		8FEC81922AD431B000185D8E /* User in Frameworks */ = {isa = PBXBuildFile; productRef = 8FEC81912AD431B000185D8E /* User */; };
 		8FEC81942AD5867200185D8E /* Genres in Frameworks */ = {isa = PBXBuildFile; productRef = 8FEC81932AD5867200185D8E /* Genres */; };
@@ -44,6 +45,7 @@
 				8F4E6E912ACD1F9F00D035B4 /* TMDBCoreLive in Frameworks */,
 				8FAB81052AD2A75100FDD2D1 /* Trending in Frameworks */,
 				8FEC81922AD431B000185D8E /* User in Frameworks */,
+				8FB384F42AD587EA00A9F81C /* MovieDetail in Frameworks */,
 				8FEC81942AD5867200185D8E /* Genres in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +125,7 @@
 				8FEC818F2AD4274E00185D8E /* MovieApp */,
 				8FEC81912AD431B000185D8E /* User */,
 				8FEC81932AD5867200185D8E /* Genres */,
+				8FB384F32AD587EA00A9F81C /* MovieDetail */,
 			);
 			productName = Movie;
 			productReference = 8F11E6832ACD129300F0AB79 /* Movie.app */;
@@ -419,6 +422,10 @@
 		8FAB81042AD2A75100FDD2D1 /* Trending */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Trending;
+		};
+		8FB384F32AD587EA00A9F81C /* MovieDetail */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MovieDetail;
 		};
 		8FEC818F2AD4274E00185D8E /* MovieApp */ = {
 			isa = XCSwiftPackageProductDependency;
