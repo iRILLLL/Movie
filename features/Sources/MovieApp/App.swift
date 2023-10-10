@@ -24,8 +24,8 @@ public struct AppFeature: Reducer {
     
     public enum Action: Equatable {
         case selectedTabChanged(Tab)
-        case accountToolbarButtonTapped
-        case closeAccountSheetToolbarButtonTapped
+        case accountButtonTapped
+        case closeAccountSheetButtonTapped
         case deepLinkTriggered(DeepLink)
         case homeTab(Home.Action)
         case trendingTab(Trending.Action)
@@ -39,11 +39,11 @@ public struct AppFeature: Reducer {
                 state.selectedTab = tab
                 return .none
                 
-            case .accountToolbarButtonTapped:
+            case .accountButtonTapped:
                 state.account = Account.State()
                 return .none
                 
-            case .closeAccountSheetToolbarButtonTapped:
+            case .closeAccountSheetButtonTapped:
                 state.account = nil
                 return .none
                 

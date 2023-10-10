@@ -36,7 +36,7 @@ public struct AppView: View {
             .toolbar {
                 ToolbarItem {
                     Button {
-                        viewStore.send(.accountToolbarButtonTapped)
+                        viewStore.send(.accountButtonTapped)
                     } label: {
                         Image(systemName: "person.crop.circle")
                     }
@@ -54,7 +54,7 @@ public struct AppView: View {
                         .toolbar {
                             ToolbarItem {
                                 Button {
-                                    viewStore.send(.closeAccountSheetToolbarButtonTapped)
+                                    viewStore.send(.closeAccountSheetButtonTapped)
                                 } label: {
                                     Image(systemName: "xmark")
                                         .foregroundStyle(Color.black)
