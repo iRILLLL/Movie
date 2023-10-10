@@ -63,6 +63,14 @@ public struct AppView: View {
                         }
                 }
             }
+            .onOpenURL { url in
+                guard
+                    let components = URLComponents(string: url.absoluteString),
+                    let host = components.host,
+                    let deepLink = DeepLink(rawValue: host)
+                else { return }
+                viewStore.send(.deepLinkTriggered(deepLink))                
+            }
         }
     }
 }
