@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>dev.iril.movie</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>movie</string>
+			</array>
+		</dict>
+	</array>
 	<key>TMDB_ACCESS_TOKEN</key>
 	<string>${TMDB_ACCESS_TOKEN}</string>
 	<key>TMDB_API_KEY</key>

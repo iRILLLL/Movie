@@ -52,7 +52,7 @@ public struct AppView: View {
                     AccountView(store: store)
                         .navigationTitle("Account")
                         .toolbar {
-                            ToolbarItem(placement: .topBarLeading) {
+                            ToolbarItem {
                                 Button {
                                     viewStore.send(.closeAccountSheetToolbarButtonTapped)
                                 } label: {
