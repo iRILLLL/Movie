@@ -21,8 +21,12 @@ public struct GenresView: View {
                                     LazyHStack {
                                             let moviesToShow = movies.prefix(2)
                                             ForEach(moviesToShow) { movie in
-                                                MovieView(movie: movie)
-                                                    .frame(width: proxy.size.width * 0.75, height: 300)
+                                                Button {
+                                                    viewStore.send(.view(.movieTapped))
+                                                } label: {
+                                                    MovieView(movie: movie)
+                                                        .frame(width: proxy.size.width * 0.75, height: 300)
+                                                }
                                             }
                                             if movies.count > 2 {
                                                 Button("More movies...") {
@@ -40,7 +44,7 @@ public struct GenresView: View {
                 }
                 .listStyle(.plain)
                 .task {
-                    await viewStore.send(.onTask).finish()
+                    await viewStore.send(.view(.onTask)).finish()
                 }
             }
         }

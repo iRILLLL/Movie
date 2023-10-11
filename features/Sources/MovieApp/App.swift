@@ -81,8 +81,18 @@ public struct AppFeature: Reducer {
                     return .none
                 }
                 
-            case .path:
-                return .none
+            case let .path(action):
+                switch action {
+                case let .element(id: _, action: .genres(.delegate(action))):
+                    switch action {
+                    case .movieTapped:
+                        state.path.append(.movieDetail(MovieFeature.State()))
+                        return .none
+                    }
+                
+                default:
+                    return .none
+                }
                 
             case let .homeTab(.delegate(action)):
                 switch action {

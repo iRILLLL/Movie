@@ -17,20 +17,36 @@ public struct Genres: Reducer {
     }
     
     public enum Action: Equatable {
-        case onTask
         case genreListResponse(TaskResult<[Genre]>)
         case movieListResponse(Genre, TaskResult<[Movie]>)
+        case view(ViewAction)
+        case delegate(DelegateAction)
+        
+        public enum ViewAction: Equatable {
+            case movieTapped
+            case onTask
+        }
+        
+        public enum DelegateAction: Equatable {
+            case movieTapped
+        }
     }
     
     public func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
-        case .onTask:
-            return .run { send in
-                await send(.genreListResponse(
-                    TaskResult {
-                        try await genreList()
-                    }
-                ))
+        case let .view(action):
+            switch action {
+            case .movieTapped:
+                return .send(.delegate(.movieTapped))
+                
+            case .onTask:
+                return .run { send in
+                    await send(.genreListResponse(
+                        TaskResult {
+                            try await genreList()
+                        }
+                    ))
+                }
             }
             
         case let .movieListResponse(genre, result):
@@ -67,6 +83,9 @@ public struct Genres: Reducer {
                 print(error)
                 return .none
             }
+            
+        case .delegate:
+            return .none
         }
     }
 }

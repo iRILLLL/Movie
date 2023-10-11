@@ -12,7 +12,7 @@ public struct Movie: Equatable, Identifiable {
     public init(movie: MovieListResponse.Movie) {
         self.id = movie.id
         self.title = movie.title
-        self.posterPath = movie.backdropPath
+        self.posterPath = movie.posterPath
         self.releaseDate = movie.releaseDate
         self.overview = movie.overview
     }
