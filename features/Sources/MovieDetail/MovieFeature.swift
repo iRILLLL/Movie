@@ -2,6 +2,8 @@ import ComposableArchitecture
 
 public struct MovieFeature: Reducer {
     
+    public init() {}
+    
     public struct State: Equatable {
         
     }

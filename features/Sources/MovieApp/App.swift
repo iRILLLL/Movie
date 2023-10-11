@@ -2,6 +2,8 @@ import ComposableArchitecture
 import Trending
 import Home
 import User
+import Genres
+import MovieDetail
 
 public enum DeepLink: String {
     case account
@@ -13,6 +15,7 @@ public struct AppFeature: Reducer {
     
     public struct State: Equatable {
         
+        var path = StackState<Path.State>()
         var selectedTab: Tab = .home
         var homeTab = Home.State()
         var trendingTab = Trending.State()
@@ -23,6 +26,7 @@ public struct AppFeature: Reducer {
     }
     
     public enum Action: Equatable {
+        case path(StackAction<Path.State, Path.Action>)
         case selectedTabChanged(Tab)
         case accountButtonTapped
         case closeAccountSheetButtonTapped
@@ -30,6 +34,29 @@ public struct AppFeature: Reducer {
         case homeTab(Home.Action)
         case trendingTab(Trending.Action)
         case account(PresentationAction<Account.Action>)
+    }
+    
+    public struct Path: Reducer {
+        
+        public enum State: Equatable {
+            case genres(Genres.State)
+            case movieDetail(MovieFeature.State)
+        }
+        
+        public enum Action: Equatable {
+            case genres(Genres.Action)
+            case movieDetail(MovieFeature.Action)
+        }
+        
+        public var body: some ReducerOf<Self> {
+            Scope(state: /State.genres, action: /Action.genres) {
+                Genres()
+            }
+            
+            Scope(state: /State.movieDetail, action: /Action.movieDetail) {
+                MovieFeature()
+            }
+        }
     }
     
     public var body: some ReducerOf<Self> {
@@ -54,6 +81,16 @@ public struct AppFeature: Reducer {
                     return .none
                 }
                 
+            case .path:
+                return .none
+                
+            case let .homeTab(.delegate(action)):
+                switch action {
+                case .browseByGenresButtonTapped:
+                    state.path.append(.genres(Genres.State()))
+                    return .none
+                }
+                
             case .homeTab:
                 return .none
                 
@@ -63,6 +100,9 @@ public struct AppFeature: Reducer {
             case .account:
                 return .none
             }
+        }
+        .forEach(\.path, action: /Action.path) {
+            Path()
         }
         .ifLet(\.$account, action: /Action.account) {
             Account()
