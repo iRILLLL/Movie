@@ -13,7 +13,7 @@ public struct MoviesByGenreView: View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             GeometryReader { proxy in
                 VStack {
-                    GenreListView(store: store.scope(state: { $0.genres }, action: MoviesByGenre.Action.genres))
+                    GenreListView(store: store.scope(state: \.genreList, action: MoviesByGenre.Action.genreList))
                         .frame(height: 50)
                     
                     MovieListView(store: store.scope(state: { $0.movies }, action: MoviesByGenre.Action.movies))

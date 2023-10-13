@@ -9,29 +9,21 @@ public struct MoviesByGenre: Reducer {
         
         public init() {}
         
-        var genres = GenreList.State()
+        var genreList = GenreList.State()
         var movies = MovieList.State()
     }
     
     public enum Action: Equatable {
         case movies(MovieList.Action)
-        case genres(GenreList.Action)
+        case genreList(GenreList.Action)
     }
     
     public var body: some ReducerOf<Self> {
         
-        Scope(state: \.movies, action: /Action.movies) {
-            MovieList()
-        }
-        
-        Scope(state: \.genres, action: /Action.genres) {
-            GenreList()
-        }
-        
         Reduce { state, action in
             switch action {
                 
-            case let .genres(.delegate(action)):
+            case let .genreList(.delegate(action)):
                 switch action {
                 case let .genresFetched(id):
                     return state.movies
@@ -39,12 +31,20 @@ public struct MoviesByGenre: Reducer {
                         .map(Action.movies)
                 }
                 
-            case .genres:
+            case .genreList:
                 return .none
                 
             case .movies:
                 return .none
             }
+        }
+            
+        Scope(state: \.movies, action: /Action.movies) {
+            MovieList()
+        }
+        
+        Scope(state: \.genreList, action: /Action.genreList) {
+            GenreList()
         }
     }
 }

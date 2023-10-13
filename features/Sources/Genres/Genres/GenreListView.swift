@@ -2,17 +2,17 @@ import SwiftUI
 import TMDBCore
 import ComposableArchitecture
 
-struct GenreListView: View {
+public struct GenreListView: View {
     
     let store: StoreOf<GenreList>
     
-    init(store: StoreOf<GenreList>) {
+    public init(store: StoreOf<GenreList>) {
         self.store = store
     }
     
-    var body: some View {
+    public var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
-            ScrollView {
+            ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(viewStore.items) { genre in
                         GenreItemView(genre: genre)

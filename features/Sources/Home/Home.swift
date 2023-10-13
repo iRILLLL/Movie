@@ -10,13 +10,28 @@ public struct Home: Reducer {
     }
     
     public enum Action: Equatable {
-        case browseByGenresButtonTapped
+        case view(ViewAction)
+        case delegate(DelegateAction)
+        
+        public enum ViewAction: Equatable {
+            case browseByGenresButtonTapped
+        }
+        
+        public enum DelegateAction: Equatable {
+            case browseByGenresButtonTapped
+        }
     }
     
     public var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .browseByGenresButtonTapped:
+            case let .view(action):
+                switch action {
+                case .browseByGenresButtonTapped:
+                    return .send(.delegate(.browseByGenresButtonTapped))
+                }
+                
+            case .delegate:
                 return .none
             }
         }

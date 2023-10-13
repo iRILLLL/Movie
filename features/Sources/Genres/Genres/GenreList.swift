@@ -41,7 +41,7 @@ public struct GenreList: Reducer {
                 print(error)
                 return .none
             }
-            
+
         case .delegate:
             return .none
         }

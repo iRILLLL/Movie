@@ -13,11 +13,12 @@ public struct HomeView: View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             VStack {
                 Button(action: {
-                    viewStore.send(.browseByGenresButtonTapped)
+                    viewStore.send(.view(.browseByGenresButtonTapped))
                 }, label: {
                     Text("Browse by Genres")
                 })
             }
+            .navigationTitle("Home")
         }
     }
 }
