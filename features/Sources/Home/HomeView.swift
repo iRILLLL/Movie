@@ -18,6 +18,9 @@ public struct HomeView: View {
                     Text("Browse by Genres")
                 })
             }
+            .task {
+                viewStore.send(.view(.onTask))
+            }
             .navigationTitle("Home")
         }
     }
