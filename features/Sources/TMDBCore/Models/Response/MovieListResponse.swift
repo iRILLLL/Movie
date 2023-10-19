@@ -12,6 +12,7 @@ extension MovieListResponse {
         
         enum CodingKeys: String, CodingKey {
             case adult
+            case originalLanguage = "original_language"
             case backdropPath = "backdrop_path"
             case genreIDS = "genre_ids"
             case id
@@ -25,6 +26,7 @@ extension MovieListResponse {
         }
         
         let adult: Bool
+        let originalLanguage: String?
         let backdropPath: String?
         let genreIDS: [Int]
         let id: Int
