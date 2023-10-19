@@ -26,6 +26,7 @@ extension MovieListRequest {
         case upcoming
         case topRated
         case popular
+        case nowPlaying
         
         public var endpoint: String {
             switch self {
@@ -43,6 +44,9 @@ extension MovieListRequest {
                 
             case .popular:
                 return "/movie/popular"
+                
+            case .nowPlaying:
+                return "/movie/now_playing"
             }
         }
     }
