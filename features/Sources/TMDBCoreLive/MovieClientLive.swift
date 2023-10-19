@@ -4,8 +4,7 @@ import TMDBCore
 import Get
 
 extension MovieClientKey: DependencyKey {
-    
-    public static let liveValue: MovieClient = .init(
+    public static let liveValue = MovieClient(
         genreList: {
             let path = "/genre/tv/list"
             let request = Request<GenreListResponse>(
@@ -23,16 +22,22 @@ extension MovieClientKey: DependencyKey {
             let path = request.type.endpoint
             var query: [(String, String?)] = [("language", request.language)]
             
+            if let page = request.page {
+                query.append(("page", "1"))
+            }
+            
             switch request.type {
             case let .discover(params):
                 let genreIDs = params.genreIDs.map(String.init).joined(separator: ",")
                 query.append(("with_genres", genreIDs))
                 query.append(("include_adult", "false"))
                 query.append(("include_video", "false"))
-                query.append(("page", "1"))
                 query.append(("sort_by", "popularity.desc"))
         
             case .trending:
+                break
+                
+            case .upcoming:
                 break
             }
             

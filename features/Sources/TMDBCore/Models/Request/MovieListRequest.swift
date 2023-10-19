@@ -5,13 +5,16 @@ public struct MovieListRequest {
 
     public let type: Type
     public let language: String
+    public let page: Int?
     
     public init(
         type: Type,
-        language: String = "en-US"
+        language: String = "en-US",
+        page: Int? = nil
     ) {
         self.language = language
         self.type = type
+        self.page = page
     }
 }
 
@@ -20,6 +23,7 @@ extension MovieListRequest {
     public enum `Type` {
         case discover(Discover)
         case trending(Period)
+        case upcoming
         
         public var endpoint: String {
             switch self {
@@ -28,6 +32,9 @@ extension MovieListRequest {
                 
             case let .trending(period):
                 return "/trending/movie/\(period.rawValue)"
+                
+            case .upcoming:
+                return "/movie/upcoming"
             }
         }
     }

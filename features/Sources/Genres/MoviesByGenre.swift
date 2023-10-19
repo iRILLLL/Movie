@@ -63,7 +63,8 @@ extension MovieList.State {
                         MovieListRequest(
                             type: .discover(
                                 .init(genreIDs: [genreID])
-                            )
+                            ),
+                            page: 1
                         )
                     )
                 }
