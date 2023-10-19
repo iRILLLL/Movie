@@ -42,6 +42,9 @@ extension MovieClientKey: DependencyKey {
                 
             case .topRated:
                 break
+                
+            case .popular:
+                break
             }
             
             let request = Request<MovieListResponse>(
